@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>釜山吃爆之旅 7/12–7/15</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+:root{--bg:#fff;--bg2:#f8f8f6;--bg3:#f0f0ed;--border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.13);--text:#1a1a18;--muted:#6b6b68;--dim:#b0b0ac;--teal:#0a7c5c;--teal-bg:#e8f8f2;--blue:#1a5fa8;--blue-bg:#e8f0fb;--amber:#7a5000;--amber-bg:#fdf4e0;--coral:#b03030;--coral-bg:#fdeaea;--gray-bg:#f2f2ef;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-serif;font-size:15px;line-height:1.7;}
+a{text-decoration:none;}
+
+/* HERO */
+.hero{padding:4rem 2rem 2.75rem;text-align:center;border-bottom:1px solid var(--border);background:var(--bg);}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--teal);text-transform:uppercase;margin-bottom:.9rem;}
+.hero h1{font-size:clamp(2rem,6vw,3.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:.75rem;}
+.hero h1 em{font-style:normal;color:var(--teal);}
+.hero-sub{color:var(--muted);font-size:14px;margin-bottom:1.5rem;}
+.pills{display:inline-flex;gap:.6rem;flex-wrap:wrap;justify-content:center;}
+.pill{display:flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);border-radius:20px;padding:4px 12px;background:var(--bg2);}
+.pdot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+
+/* LEGEND */
+.legend{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;padding:.85rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border);}
+.leg{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);}
+.ldot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+
+/* MAIN */
+.main{max-width:860px;margin:0 auto;padding:2.25rem 1.5rem 5rem;}
+
+/* DAY CARD */
+.card{margin-bottom:2rem;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 1px 3px rgba(0,0,0,0.05);}
+.card-head{padding:.85rem 1.4rem;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);background:var(--bg2);}
+.badge{font-family:'DM Mono',monospace;font-size:11px;padding:3px 11px;border-radius:20px;font-weight:500;white-space:nowrap;flex-shrink:0;border:1px solid transparent;}
+.card-info .ct{font-size:15px;font-weight:700;}
+.card-info .cd{font-size:12px;color:var(--muted);margin-top:1px;}
+
+/* NOTE */
+.note{padding:.55rem 1.4rem;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border);border-left:3px solid var(--teal);background:var(--teal-bg);line-height:1.6;}
+
+/* ROW */
+.row{display:grid;grid-template-columns:52px 14px 1fr;gap:0 9px;align-items:start;padding:.5rem 1.4rem;border-top:1px solid var(--border);transition:background .1s;}
+.row:hover{background:var(--bg2);}
+.rtime{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);padding-top:4px;text-align:right;}
+.rdots{display:flex;flex-direction:column;align-items:center;padding-top:5px;}
+.rdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.rline{width:1px;flex:1;min-height:22px;background:var(--border2);margin-top:4px;}
+.row:last-child .rline{display:none;}
+.rc{padding-bottom:3px;}
+.rn{font-size:14px;font-weight:500;line-height:1.45;}
+.rs{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.55;}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px;align-items:center;}
+.tag{font-size:11px;padding:2px 8px;border-radius:10px;border:1px solid transparent;}
+.tf{background:var(--teal-bg);color:var(--teal);border-color:rgba(10,124,92,.2);}
+.ts{background:var(--blue-bg);color:var(--blue);border-color:rgba(26,95,168,.2);}
+.tw{background:var(--coral-bg);color:var(--coral);border-color:rgba(176,48,48,.2);}
+.tm{background:var(--gray-bg);color:var(--muted);border-color:rgba(0,0,0,.11);}
+
+/* LINK BUTTONS */
+.yt{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:2px 8px;border-radius:10px;background:#fff0f0;color:#cc0000;border:1px solid rgba(204,0,0,.25);font-family:'DM Mono',monospace;font-weight:500;transition:background .1s;}
+.yt:hover{background:#ffe0e0;}
+.mp{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:2px 8px;border-radius:10px;background:var(--blue-bg);color:var(--blue);border:1px solid rgba(26,95,168,.25);font-family:'DM Mono',monospace;font-weight:500;transition:background .1s;}
+.mp:hover{background:#d4e4f7;}
+
+/* DOT COLORS */
+.df{background:#0a7c5c;}
+.ds{background:#1a5fa8;}
+.dt{background:#b0b0ac;}
+.dh{background:#b03030;}
+
+/* BADGE COLORS */
+.b0{background:var(--coral-bg);color:var(--coral);border-color:rgba(176,48,48,.25);}
+.b1{background:var(--blue-bg);color:var(--blue);border-color:rgba(26,95,168,.25);}
+.b2{background:var(--teal-bg);color:var(--teal);border-color:rgba(10,124,92,.25);}
+.b3{background:var(--amber-bg);color:var(--amber);border-color:rgba(122,80,0,.25);}
+.b4{background:var(--gray-bg);color:var(--muted);border-color:rgba(0,0,0,.15);}
+
+/* TIPS */
+.tips{margin-top:2rem;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.05);}
+.tips-h{padding:.85rem 1.4rem;background:var(--amber-bg);border-bottom:1px solid var(--border);font-size:13px;font-weight:700;color:var(--amber);}
+.tips-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.tip{padding:.9rem 1.4rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.tip-l{font-family:'DM Mono',monospace;font-size:11px;color:var(--amber);margin-bottom:4px;}
+.tip-t{font-size:13px;color:var(--muted);line-height:1.6;}
+
+footer{text-align:center;padding:1.75rem;font-size:11px;color:var(--dim);border-top:1px solid var(--border);background:var(--bg2);font-family:'DM Mono',monospace;}
+
+/* SVG icons inline */
+.ico{display:inline-block;vertical-align:middle;flex-shrink:0;}
+
+@media(max-width:600px){
+  .hero{padding:3rem 1.25rem 2.25rem;}
+  .main{padding:1.75rem 1rem 4rem;}
+  .row{grid-template-columns:42px 12px 1fr;gap:0 7px;padding:.45rem 1rem;}
+  .card-head,.note{padding-left:1rem;padding-right:1rem;}
+  .tips-g{grid-template-columns:1fr;}
+  .tip{border-right:none;}
+  .pills{gap:.4rem;}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="eyebrow">Korea · Busan · 2025 Summer</p>
+  <h1>釜山<em>吃爆</em>之旅</h1>
+  <p class="hero-sub">4天3夜・廣安里住宿・地鐵通勤・三支 YouTube 餐廳 + 地圖全收錄</p>
+  <div class="pills">
+    <span class="pill"><span class="pdot" style="background:#b03030"></span>7/12 日 抵達</span>
+    <span class="pill"><span class="pdot" style="background:#aaa"></span>7/15 三 19:00 起飛</span>
+    <span class="pill"><span class="pdot" style="background:#0a7c5c"></span>4 人同行</span>
+    <span class="pill"><span class="pdot" style="background:#1a5fa8"></span>廣安里 Gray 193 Hotel / Airbnb</span>
+  </div>
+</header>
+
+<div class="legend">
+  <div class="leg"><span class="ldot" style="background:#0a7c5c"></span>餐廳／美食</div>
+  <div class="leg"><span class="ldot" style="background:#1a5fa8"></span>景點／體驗</div>
+  <div class="leg"><span class="ldot" style="background:#aaa"></span>交通</div>
+  <div class="leg"><span class="ldot" style="background:#b03030"></span>住宿／機場</div>
+  <div class="leg"><svg class="ico" width="12" height="12" viewBox="0 0 24 24" fill="#cc0000"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg>&nbsp;YT 跳轉</div>
+  <div class="leg"><svg class="ico" width="12" height="12" viewBox="0 0 24 24" fill="#1a5fa8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>&nbsp;地圖</div>
+</div>
+
+<main class="main">
+
+<!-- ══ 7/12 日 抵達 ══ -->
+<div class="card">
+  <div class="card-head">
+    <span class="badge b0">7/12 日</span>
+    <div class="card-info">
+      <div class="ct">抵達日 — 廣安里報到</div>
+      <div class="cd">中午到・安頓・晚上吃好吃・夜景散步</div>
+    </div>
+  </div>
+  <p class="note">⚡ 週日無人機秀，改欣賞廣安大橋夜景。住宿推薦：Gray 193 Hotel（海景第一排，無人機秀就在旁邊）</p>
+
+  <div class="row">
+    <div class="rtime">12:00</div>
+    <div class="rdots"><div class="rdot dt"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">金海機場抵達</div>
+      <div class="rs">金海輕軌 → 沙上站 → 地鐵2號線 → 廣安站・約50分鐘・₩2,700</div>
+      <div class="tags"><span class="tag tm">輕軌 + 2號線</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">13:30</div>
+    <div class="rdots"><div class="rdot dh"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">廣安里入住・放行李</div>
+      <div class="rs">Gray 193 Hotel 或 Airbnb・海景第一排・旁邊就是廣安里沙灘</div>
+      <div class="tags">
+        <a class="mp" href="https://www.google.com/maps/search/?api=1&query=Gray+193+Hotel+광안리+부산" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Gray 193 Hotel</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">14:30</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🍜 姐妹湯飯 자매국밥</div>
+      <div class="rs">在地人推薦豬肉湯飯・Celine's Way Day1 推薦・廣安里附近</div>
+      <div class="tags">
+        <span class="tag tf">豬肉湯飯</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=zHvyHXqt01s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Celine Day1</a>
+        <a class="mp" href="https://www.google.com/maps/search/?api=1&query=자매국밥+부산" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">16:00</div>
+    <div class="rdots"><div class="rdot ds"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">廣安里海灘散步</div>
+      <div class="rs">認識住宿環境・廣安里海水浴場・找海景咖啡廳坐坐</div>
+      <div class="tags">
+        <span class="tag ts">海景</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=OwC5YBcRE8E&t=32s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Ki 00:32</a>
+        <a class="mp" href="https://maps.app.goo.gl/UPhNPmw76uDwTGy2A" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 廣安里海灘</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">18:00</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🍻 광안돼지국밥＆광안포차</div>
+      <div class="rs">廣安里豬肉湯飯＋海邊居酒屋・Ki 影片推薦・邊喝邊看夜景</div>
+      <div class="tags">
+        <span class="tag tf">豬肉湯飯/居酒屋</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=OwC5YBcRE8E&t=1079s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Ki 17:59</a>
+        <a class="mp" href="https://maps.app.goo.gl/ub65wdy5ksemi1Qw7" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">20:30</div>
+    <div class="rdots"><div class="rdot ds"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🍧 雪冰 설빙 민락점</div>
+      <div class="rs">韓國知名雪冰甜點・Ki 影片推薦・廣安里沙灘旁</div>
+      <div class="tags">
+        <span class="tag tf">甜點</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=OwC5YBcRE8E&t=1391s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Ki 23:11</a>
+        <a class="mp" href="https://maps.app.goo.gl/mHfVtkKG1Q7xoQRS8" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">21:30</div>
+    <div class="rdots"><div class="rdot ds"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">廣安大橋夜景</div>
+      <div class="rs">吃完甜點在沙灘吹海風・欣賞廣安大橋燈光倒影</div>
+      <div class="tags">
+        <span class="tag ts">夜景</span>
+        <a class="mp" href="https://maps.app.goo.gl/qVCpFkzxsEP6rqZd7" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 廣安大橋</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 7/13 一 東釜山 ══ -->
+<div class="card">
+  <div class="card-head">
+    <span class="badge b1">7/13 一</span>
+    <div class="card-info">
+      <div class="ct">東釜山日 — 滑草＋龍宮寺＋夜景</div>
+      <div class="cd">地鐵東海線出發・機張區玩一整天・週一人潮少</div>
+    </div>
+  </div>
+  <p class="note">⚡ 廣安站 → 水營站 換東海線 → 奧西利亞站 → Uber 到 Skyline Luge（4人約台幣150元）・Skyline Luge 建議早去，旺季等很久</p>
+
+  <div class="row">
+    <div class="rtime">07:30</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">早餐：All Sunday Bagel</div>
+      <div class="rs">廣安里人氣手工貝果・早點去避開人龍・鹹甜都有</div>
+      <div class="tags">
+        <span class="tag tf">早午餐</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=OwC5YBcRE8E&t=45s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Ki 00:45</a>
+        <a class="mp" href="https://maps.app.goo.gl/9Ft8zwxnYdycjbeT8" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">09:00</div>
+    <div class="rdots"><div class="rdot dt"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">地鐵 → 奧西利亞站</div>
+      <div class="rs">廣安站 → 水營站 換東海線 → 奧西利亞站・約45分鐘・下車後 Uber 到 Luge</div>
+      <div class="tags"><span class="tag tm">東海線</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">10:00</div>
+    <div class="rdots"><div class="rdot ds"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🎢 Skyline Luge 斜坡滑草車</div>
+      <div class="rs">纜車上山 + 斜坡滑車・建議購3回券 ₩30,000・玩2小時・遇大雨暫停</div>
+      <div class="tags">
+        <span class="tag ts">滑草</span>
+        <span class="tag tw">必玩</span>
+        <a class="mp" href="https://maps.google.com/maps?q=35.1941,129.2186" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">12:30</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🦀 海東龍宮寺炸醬麵 or 機張大蟹</div>
+      <div class="rs">從 Skyline Luge 步行約8分鐘・龍宮寺旁有韓式炸醬麵店・機張大蟹需提前找攤位</div>
+      <div class="tags">
+        <span class="tag tf">海鮮/麵食</span>
+        <a class="mp" href="https://maps.google.com/maps?q=35.1894,129.2244" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 龍宮寺周邊</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">14:00</div>
+    <div class="rdots"><div class="rdot ds"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">海東龍宮寺 해동용궁사</div>
+      <div class="rs">絕美海邊寺廟・免費入場・從 Skyline Luge 步行約10分鐘</div>
+      <div class="tags">
+        <span class="tag ts">景點</span>
+        <a class="mp" href="https://maps.google.com/maps?q=35.1894,129.2244" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">16:00</div>
+    <div class="rdots"><div class="rdot dt"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">回廣安里</div>
+      <div class="rs">公車到奧西利亞站 → 東海線 → 水營 → 2號線 → 廣安</div>
+      <div class="tags"><span class="tag tm">東海線</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">17:30</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">☕ Front Coffee 프론트커피</div>
+      <div class="rs">Christy 影片推薦・廣安里海景附近咖啡廳・下午茶稍作休息</div>
+      <div class="tags">
+        <span class="tag tf">咖啡廳</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=ql4cyftZ8cw&t=305s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Christy 05:05</a>
+        <a class="mp" href="https://maps.google.com/maps?q=프론트커피+광안리" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">19:00</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🥩 광안목 廣安木・乾式熟成烤肉</div>
+      <div class="rs">Christy 推薦・海雲台/廣安里・乾式熟成韓牛・風味獨特</div>
+      <div class="tags">
+        <span class="tag tf">乾式熟成烤肉</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=ql4cyftZ8cw&t=600s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Christy 10:00</a>
+        <a class="mp" href="https://maps.google.com/maps?q=광안목+해운대" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">21:00</div>
+    <div class="rdots"><div class="rdot ds"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">黃嶺山展望台 황령산전망대</div>
+      <div class="rs">Ki 影片推薦・釜山夜景至高點・需搭計程車上山・約10分鐘車程</div>
+      <div class="tags">
+        <span class="tag ts">夜景展望台</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=OwC5YBcRE8E&t=836s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Ki 13:56</a>
+        <a class="mp" href="https://maps.app.goo.gl/MrZUeh6Non9FUfoc6" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 7/14 二 海雲台 ══ -->
+<div class="card">
+  <div class="card-head">
+    <span class="badge b2">7/14 二</span>
+    <div class="card-info">
+      <div class="ct">海雲台日 — 膠囊列車＋汗蒸幕</div>
+      <div class="cd">地鐵2號線全天・東部精華一日遊</div>
+    </div>
+  </div>
+  <p class="note">⚡ 膠囊列車務必提前2–4週線上預約！選尾浦→青沙浦方向（靠海那側無遮蔽）・4人剛好一台</p>
+
+  <div class="row">
+    <div class="rtime">08:00</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">早餐：안목 安木（米其林推薦豬肉湯飯）</div>
+      <div class="rs">Christy 影片 Day2 推薦・米其林必比登・釜山在地早餐文化</div>
+      <div class="tags">
+        <span class="tag tf">米其林豬肉湯飯</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=ql4cyftZ8cw&t=723s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Christy 12:03</a>
+        <a class="mp" href="https://maps.google.com/maps?q=안목+부산" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">09:30</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">☕ Under Coffee（釜山拿鐵名店）</div>
+      <div class="rs">Celine's Way Day2 推薦・釜山手沖名店・尾浦站附近</div>
+      <div class="tags">
+        <span class="tag tf">咖啡</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=zHvyHXqt01s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Celine Day2</a>
+        <a class="mp" href="https://maps.app.goo.gl/ogCeWJr5kMJxMigE8" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">10:15</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">☕ 엣지993（尾浦站海景咖啡廳）</div>
+      <div class="rs">Celine's Way Day2 推薦・看 Sky Capsule 通過的絕佳角度＋無敵海景</div>
+      <div class="tags">
+        <span class="tag tf">海景咖啡廳</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=zHvyHXqt01s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Celine Day2</a>
+        <a class="mp" href="https://maps.app.goo.gl/ryMhAhg8XohP4kUB8" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">11:00</div>
+    <div class="rdots"><div class="rdot ds"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🚋 天空膠囊列車 Sky Capsule</div>
+      <div class="rs">尾浦 → 青沙浦・全程30分鐘・4人剛好一台・沿途無敵海景・<strong>提前2–4週預約</strong></div>
+      <div class="tags">
+        <span class="tag ts">膠囊列車</span>
+        <span class="tag tw">必體驗</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=ql4cyftZ8cw&t=348s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Christy 05:48</a>
+        <a class="yt" href="https://www.youtube.com/watch?v=zHvyHXqt01s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Celine Day2</a>
+        <a class="mp" href="https://www.google.com/maps/search/?api=1&query=해운대블루라인파크+미포정거장" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 尾浦站</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">12:30</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🍚 All Abrupt Restaurant 青沙浦（醬拌鳥蛤飯）</div>
+      <div class="rs">Celine's Way Day2 推薦・꼬막비빔밥・青沙浦站下車即達</div>
+      <div class="tags">
+        <span class="tag tf">醬拌鳥蛤飯</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=zHvyHXqt01s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Celine Day2</a>
+        <a class="mp" href="https://maps.app.goo.gl/A3rgSQLHWs7MPdrU9" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">14:00</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🍞 DIART Coffee（青沙浦人生麵包 Kaymak）</div>
+      <div class="rs">Celine's Way Day2 推薦・烤麵包抹上濃厚奶油霜・必點甜點</div>
+      <div class="tags">
+        <span class="tag tf">麵包/咖啡</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=zHvyHXqt01s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Celine Day2</a>
+        <a class="mp" href="https://www.google.com/maps/search/?api=1&query=DIART+청사포" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">15:30</div>
+    <div class="rdots"><div class="rdot dt"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">地鐵 → Centum City站</div>
+      <div class="rs">青沙浦 → 搭公車或計程車 → 海雲台站 → 2號線 → Centum City・約30分鐘</div>
+      <div class="tags"><span class="tag tm">2號線</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">16:30</div>
+    <div class="rdots"><div class="rdot ds"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🧖 SPA LAND Centum City（汗蒸幕）</div>
+      <div class="rs">Celine's Way Day3 推薦・釜山最豪華汗蒸幕・釜山Pass可免費入場・最晚19:00入場</div>
+      <div class="tags">
+        <span class="tag ts">汗蒸幕</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=zHvyHXqt01s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Celine Day3</a>
+        <a class="mp" href="https://www.google.com/maps/search/?api=1&query=스파랜드+센텀시티" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">19:30</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🍖 伍班長烤肉 오반장（海雲台）</div>
+      <div class="rs">海雲台超人氣燒肉・炭火豬五花+韓牛・<strong>記得提前網路候位</strong></div>
+      <div class="tags">
+        <span class="tag tf">韓式烤肉</span>
+        <span class="tag tw">先候位</span>
+        <a class="mp" href="https://maps.google.com/maps?q=오반장+해운대" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">21:30</div>
+    <div class="rdots"><div class="rdot dt"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">地鐵回廣安里</div>
+      <div class="rs">Centum City站 或 海雲台站 → 廣安站・2號線・約15分鐘</div>
+      <div class="tags"><span class="tag tm">2號線</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 7/15 三 退房 ══ -->
+<div class="card">
+  <div class="card-head">
+    <span class="badge b4">7/15 三</span>
+    <div class="card-info">
+      <div class="ct">退房日 — 西面掃街＋機場</div>
+      <div class="cd">19:00 起飛・最晚 14:30 從廣安里出發</div>
+    </div>
+  </div>
+  <p class="note">⚡ 19:00 起飛建議 16:00 前到機場・廣安 → 機場地鐵約60分鐘・14:30 前務必出發</p>
+
+  <div class="row">
+    <div class="rtime">08:00</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">早餐：巨大牛肉湯飯 or 광안돼지국밥</div>
+      <div class="rs">Ki 影片推薦・廣安里周邊・正宗釜山晨食文化</div>
+      <div class="tags">
+        <span class="tag tf">湯飯</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=OwC5YBcRE8E&t=215s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Ki 03:35</a>
+        <a class="mp" href="https://maps.app.goo.gl/BykByTxTVmnHP2Rg9" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">09:30</div>
+    <div class="rdots"><div class="rdot dh"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">Airbnb 退房・寄放行李</div>
+      <div class="rs">廣安里旅遊諮詢中心可免費寄放行李（押護照）</div>
+      <div class="tags">
+        <a class="mp" href="https://maps.google.com/maps?q=광안리+관광안내소" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 旅遊諮詢中心</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">10:00</div>
+    <div class="rdots"><div class="rdot dt"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">地鐵 → 西面站</div>
+      <div class="rs">廣安站 → 西面站・2號線・約25分鐘</div>
+      <div class="tags"><span class="tag tm">2號線</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">10:30</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">☕ Strut Coffee 스트럿커피（世界百大咖啡）</div>
+      <div class="rs">Christy 推薦・世界咖啡大賽得獎・田浦咖啡街附近</div>
+      <div class="tags">
+        <span class="tag tf">手沖咖啡</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=ql4cyftZ8cw&t=865s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Christy 14:25</a>
+        <a class="mp" href="https://maps.google.com/maps?q=스트럿커피+부산" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">11:00</div>
+    <div class="rdots"><div class="rdot df"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">🥩 豚笑 南浦店 돈소 남포점</div>
+      <div class="rs">Ki 影片推薦・西面/南浦・巴克夏豬炸豬排・不走韓牛路線的另一選擇</div>
+      <div class="tags">
+        <span class="tag tf">炸豬排</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=OwC5YBcRE8E&t=420s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Ki 07:00</a>
+        <a class="mp" href="https://maps.app.goo.gl/9jo2vqEiQKZM7vJ36" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 地圖</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">12:30</div>
+    <div class="rdots"><div class="rdot ds"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">西面樂天百貨逛街 + 伴手禮</div>
+      <div class="rs">Ki 影片推薦・OLIVE YOUNG / Puff Bakery / 西面地下街・最後血拼機會</div>
+      <div class="tags">
+        <span class="tag ts">逛街</span>
+        <a class="yt" href="https://www.youtube.com/watch?v=OwC5YBcRE8E&t=529s" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg> Ki 08:49</a>
+        <a class="mp" href="https://maps.app.goo.gl/pwUxTJFszLzzceJ59" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 西面樂天</a>
+        <a class="mp" href="https://maps.google.com/maps?q=Puff+Bakery+부산" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Puff Bakery</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">14:00</div>
+    <div class="rdots"><div class="rdot dt"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">回廣安里取行李 → 出發機場</div>
+      <div class="rs">廣安站 → 水營站 換東海線 → 沙上站 換金海輕軌 → 機場・約60分鐘</div>
+      <div class="tags"><span class="tag tm">輕軌 + 地鐵</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="rtime">16:00</div>
+    <div class="rdots"><div class="rdot dh"></div><div class="rline"></div></div>
+    <div class="rc">
+      <div class="rn">金海機場 Check-in</div>
+      <div class="rs">19:00 起飛・提前3小時到最安心・機場內免稅店可逛</div>
+      <div class="tags">
+        <a class="mp" href="https://maps.google.com/maps?q=35.1796,128.9382" target="_blank"><svg class="ico" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 金海機場</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TIPS ══ -->
+<div class="tips">
+  <div class="tips-h">⚡ 出發前必做清單</div>
+  <div class="tips-g">
+    <div class="tip">
+      <div class="tip-l">膠囊列車預約</div>
+      <div class="tip-t">提前 2–4 週到官網預約，選尾浦→青沙浦方向（靠海那側），秒殺速度極快</div>
+    </div>
+    <div class="tip">
+      <div class="tip-l">伍班長烤肉</div>
+      <div class="tip-t">用 Naver 或官方管道提前網路候位，熱門時段等候超過1小時</div>
+    </div>
+    <div class="tip">
+      <div class="tip-l">SPA LAND 汗蒸幕</div>
+      <div class="tip-t">釜山Pass可免費入場，最晚 19:00 入場，建議下午3點後去避開人潮</div>
+    </div>
+    <div class="tip">
+      <div class="tip-l">釜山通行證</div>
+      <div class="tip-t">Visit Busan Pass 含免費搭海岸列車、SPA LAND、Skyline Luge 2次，4人買很划算</div>
+    </div>
+    <div class="tip">
+      <div class="tip-l">無人機燈光秀</div>
+      <div class="tip-t">7月週六 20:00 & 22:00 兩場（夏季時間），就在廣安里沙灘旁。這次 7/12–7/15 是日到三，無法看到。</div>
+    </div>
+    <div class="tip">
+      <div class="tip-l">7月天氣</div>
+      <div class="tip-t">暑假旺季，下午易有雷陣雨，Skyline Luge 建議一早就去。遇大雨會暫停營業。</div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>Busan Trip · 7/12–7/15 · 4 pax · 廣安里 · 參考：Celine's Way × Ki笑人生 × Christy 心甜</footer>
+
+</body>
+</html>
