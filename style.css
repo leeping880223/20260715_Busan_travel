@@ -32,6 +32,23 @@ a{text-decoration:none;}
 /* NOTE */
 .note{padding:.55rem 1.4rem;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border);border-left:3px solid var(--teal);background:var(--teal-bg);line-height:1.6;}
 
+/* ROUTE MAP */
+.rm-cb{display:none;}
+.rm-btn{margin-left:auto;flex-shrink:0;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);background:var(--blue-bg);border:1px solid rgba(26,95,168,.25);border-radius:20px;padding:4px 10px;white-space:nowrap;transition:background .1s;}
+.rm-btn:hover{background:#d4e4f7;}
+.routemap{display:none;flex-wrap:wrap;align-items:center;gap:5px 4px;padding:.75rem 1.4rem;border-bottom:1px solid var(--border);background:var(--bg2);}
+.rm-cb:checked~.routemap{display:flex;}
+.rm-node{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--border2);border-radius:9px;padding:4px 9px 4px 7px;white-space:nowrap;}
+.rm-node .rm-ico{font-size:14px;line-height:1;}
+.rm-meta{display:flex;flex-direction:column;line-height:1.25;}
+.rm-time{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--dim);}
+.rm-name{font-size:11.5px;font-weight:500;color:var(--text);}
+.rm-node.n-df{box-shadow:inset 3px 0 0 var(--teal);}
+.rm-node.n-ds{box-shadow:inset 3px 0 0 var(--blue);}
+.rm-node.n-dh{box-shadow:inset 3px 0 0 var(--coral);}
+.rm-node.n-dt{box-shadow:inset 3px 0 0 var(--dim);opacity:.85;}
+.rm-edge{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap;padding:0 1px;}
+
 /* ROW */
 .row{display:grid;grid-template-columns:52px 14px 1fr;gap:0 9px;align-items:start;padding:.5rem 1.4rem;border-top:1px solid var(--border);transition:background .1s;}
 .row:hover{background:var(--bg2);}
@@ -109,7 +126,7 @@ footer{text-align:center;padding:1.75rem;font-size:11px;color:var(--dim);border-
   .hero{padding:3rem 1.25rem 2.25rem;}
   .main{padding:1.75rem 1rem 4rem;}
   .row{grid-template-columns:42px 12px 1fr;gap:0 7px;padding:.45rem 1rem;}
-  .card-head,.note,.backup{padding-left:1rem;padding-right:1rem;}
+  .card-head,.note,.backup,.routemap{padding-left:1rem;padding-right:1rem;}
   .backup-all-h,.region-h,.region .backup-item{padding-left:1rem;padding-right:1rem;}
   .card-head{flex-wrap:wrap;}
   .rt{margin-left:0;}
