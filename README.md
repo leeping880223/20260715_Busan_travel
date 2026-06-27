@@ -25,10 +25,13 @@ style.css    視覺樣式（顏色、版面、RWD）
 
 ```
 div.card
+├─ input.rm-cb           隱藏的 checkbox（控制路徑圖開關，預設 checked＝展開）
 ├─ div.card-head        當天標題列
 │   ├─ span.badge       日期徽章（b0~b4 對應不同顏色）
-│   └─ div.card-info    當天主題 + 一句話摘要
+│   ├─ div.card-info    當天主題 + 一句話摘要
+│   └─ label.rm-btn     🗺️ 路徑圖按鈕（for 對應上面的 checkbox）
 ├─ p.note               當天提醒（⚡ 開頭）
+├─ div.routemap         當天路徑圖（見下方說明）
 └─ div.row（多個）       時間軸上的每一個行程點
     ├─ div.rtime         時間
     ├─ div.rdots         時間軸圓點 + 連接線
@@ -46,6 +49,24 @@ div.card
 ```
 
 `.row:last-child` 會自動隱藏連接線（`.rline`），讓時間軸在每天最後一筆收尾乾淨，不需要額外標記。
+
+### 路徑圖（`div.routemap`）
+
+每天 `p.note` 下方有一條橫向、會自動換行的「路徑圖」，把當天行程點濃縮成一排小卡片＋箭頭文字，方便不展開細項也能掃過整天動線：
+
+```
+div.routemap
+├─ div.rm-node（多個）   一個停留點
+│   ├─ span.rm-ico       emoji 圖示
+│   └─ div.rm-meta
+│       ├─ span.rm-time  時間
+│       └─ span.rm-name  地點短名
+└─ span.rm-edge（多個）  夾在兩個 rm-node 之間，文字＝交通方式＋所需時間
+```
+
+`rm-node` 依停留點性質加 `n-df`／`n-ds`／`n-dh`／`n-dt` 其中一個 class，顏色對應跟 `rdot` 同一套（左側色條，餐飲綠／景點藍／住宿機場紅／交通灰）。沒有實際移動資訊（例如同一帶步行可達）時，`rm-edge` 就只放交通方式文字（如「🚶 步行可達」），不硬湊時間。
+
+**開關機制**：`input.rm-cb` 是一個 `display:none` 的 checkbox，`label.rm-btn` 透過 `for` 屬性連到它；CSS 用 `.rm-cb:checked~.routemap{display:flex}` 控制顯示，純 HTML/CSS，沒有用到 JavaScript。checkbox 預設帶 `checked`，所以路徑圖預設展開，點一下 🗺️ 路徑圖 按鈕即可收起/展開。`id`／`for` 用日期命名（`rm-712`、`rm-713`、`rm-714`、`rm-715`），新增一天時記得換一個不重複的 id。
 
 ### 候補清單（`div.backup-all`）
 
@@ -70,13 +91,13 @@ div.backup-all
 
 CSS 用三組獨立的顏色 class 對應同一種分類，分別用在不同元素上：
 
-| 分類 | 時間軸點 (`rdot`) | 標籤 (`tag`) | 日期徽章 (`badge`) |
-|---|---|---|---|
-| 餐飲 | `df` | `tf` | — |
-| 景點／體驗 | `ds` | `ts` | — |
-| 交通 | `dt` | `tm` | — |
-| 住宿／機場 | `dh` | — | — |
-| 每日主色（依天數輪替） | — | — | `b0`～`b4` |
+| 分類 | 時間軸點 (`rdot`) | 路徑圖節點 (`rm-node`) | 標籤 (`tag`) | 日期徽章 (`badge`) |
+|---|---|---|---|---|
+| 餐飲 | `df` | `n-df` | `tf` | — |
+| 景點／體驗 | `ds` | `n-ds` | `ts` | — |
+| 交通 | `dt` | `n-dt` | `tm` | — |
+| 住宿／機場 | `dh` | `n-dh` | — | — |
+| 每日主色（依天數輪替） | — | — | — | `b0`～`b4` |
 
 顏色本身定義在 `style.css` 的 `:root` CSS 變數（`--teal`、`--blue`、`--coral`、`--amber`…），改主題色只需改變數，不用逐個改 class。
 
@@ -102,7 +123,7 @@ CSS 用三組獨立的顏色 class 對應同一種分類，分別用在不同元
 
 ## 如何新增 / 修改
 
-- **新增一天**：複製一張 `div.card` 區塊，改 `badge` 文字與顏色 class（`b0`~`b4` 任選不重複的）、改 `card-info`，內部 `row` 依序增刪。
-- **新增一個行程點**：複製一個 `div.row` 區塊，改 `rtime`、`rdot` 顏色 class、`rn`/`rs` 文字、`tags` 內的標籤與連結。
-- **換掉某個地點**：把原本的 `div.row` 改成新地點的內容；如果想保留舊地點當備案，把舊內容剪到候補清單對應的 `div.region` 裡，包成一個 `div.backup-item`。
+- **新增一天**：複製一張 `div.card` 區塊，改 `input.rm-cb` 的 `id`（換成新日期、不重複）、`label.rm-btn` 的 `for` 要跟著改、改 `badge` 文字與顏色 class（`b0`~`b4` 任選不重複的）、改 `card-info`，內部 `row` 依序增刪，並重新整理 `routemap`。
+- **新增一個行程點**：複製一個 `div.row` 區塊，改 `rtime`、`rdot` 顏色 class、`rn`/`rs` 文字、`tags` 內的標籤與連結；同時在 `div.routemap` 裡加一個對應的 `rm-node`（時間＋短名＋圖示），並補上前後的 `rm-edge`（交通方式＋所需時間）。
+- **換掉某個地點**：把原本的 `div.row` 改成新地點的內容，`routemap` 裡對應的 `rm-node` 也要同步改名；如果想保留舊地點當備案，把舊內容剪到候補清單對應的 `div.region` 裡，包成一個 `div.backup-item`（候補清單不需要出現在 `routemap`）。
 - **新增候補地點**：判斷地理區域，加進 `div.backup-all` 裡對應的 `div.region`；沒有合適區域就新開一個。
